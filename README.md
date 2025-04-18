@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # DevOps Portfolio Project 🚀
 
 An end-to-end CI/CD pipeline using:
@@ -48,3 +49,6 @@ following are the steps that show  how the entire pipeline flows from **code to 
 
 5. 📊 **CloudWatch Logs:**
    - Logs from the ECS tasks are streamed into Amazon CloudWatch for observability and monitoring.
+=======
+# terraform-jenkins-ci-pipeline
+>>>>>>> 8421db5d67e25b7696fac49f97da0211a7a287b4

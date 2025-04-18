@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+
+    environment {
+        ECR_REPO = 'your-ecr-repo-url'
+        AWS_REGION = 'us-east-1'
+        IMAGE_TAG = "${BUILD_NUMBER}"
+    }
+
+    stages {
+        stage('Clone') {
+            steps {
+                git 'https://github.com/yourusername/devops-portfolio-project'
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                sh 'docker build -t $ECR_REPO:$IMAGE_TAG ./app'
+            }
+        }
+
+        stage('Push to ECR') {
+            steps {
+                sh '''
+                    aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPO
+                    docker push $ECR_REPO:$IMAGE_TAG
+                '''
+            }
+        }
+
+        stage('Deploy to ECS') {
+            steps {
+                sh '''
+                    aws ecs update-service \
+                        --cluster devops-cluster \
+                        --service devops-service \
+                        --force-new-deployment
+                '''
+            }
+        }
+
+        stage('Health Check') {
+            steps {
+                sh 'curl --fail http://your-alb-endpoint/health'
+            }
+        }
+    }
+}

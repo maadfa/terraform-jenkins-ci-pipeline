@@ -37,7 +37,81 @@ cd devops-portfolio
 mkdir terraform app jenkins
 
 Step 2: Write Terraform Code to Provision AWS Resources
+
 Create various files inside the terraform using "touch" command to write necessory code in them.
+
+Create VPC, subnets, Internet Gateway
+
+Create ECS cluster, ECS task definition, ECS service
+
+Create IAM roles/policies for ECS + Jenkins
+
+Create ECR repository for Docker images
+
+Configure security groups and CloudWatch log groups
+
+Then ,run the command of 
+
+Terraform init 
+
+Terraform apply 
+
+In this way ,all AWS  cloud resources are conncted togather via terraform.
+
+Step 3: Build Your Flask App and Dockerfile
+
+Inside app folder ,create app.py to create your flask app .Also create doker file inside app folder.
+
+This defines how to containerize your app.
+Step 4 :Configure Jenkinsfile
+
+Inside the jenkins/ folder:
+
+Write a Jenkinsfile to automate:
+
+Pulling code from GitHub
+
+Building Docker image
+
+Logging in to AWS ECR
+
+Pushing Docker image to ECR
+
+Updating ECS service
+
+
+Jenkins acts as the automation engine. It builds and pushes Docker images to ECR and tells ECS to deploy the updated version.
+
+Step 5: Push Docker Image to AWS ECR
+
+ECR (Elastic Container Registry) is Amazon Web Services' fully managed Docker container registry.
+
+Dockerized application (a Flask app)  is pushed to ECR so that it can be later deployed to ECS Fargate, which runs containers in the cloud.
+
+Jenkins builds and pushes Docker images to ECR, which ECS later pulls to run containers.
+
+Step 6: Update ECS Service
+
+Use AWS CLI or Terraform to update the ECS service
+When the Docker image (with new app code) is pushed to ECR, the ECS service doesn’t automatically redeploy the new version.So, it has to be pushed  by using the following command 
+
+--force-new-deployment
+
+It forces ECS to pull the newest version of the image from ECR and redeploy the task.
+
+Without this command, your ECS service will keep running the old container (with old code).
+
+This step refreshes the running service to ensure it uses your latest build.
+
+
+
+
+
+
+
+
+
+
 
 
 

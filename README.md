@@ -66,6 +66,8 @@ Step 3: Build Your Flask App and Dockerfile
 Inside app folder ,create app.py to create your flask app .Also create doker file inside app folder.
 
 This defines how to containerize your app.
+
+
 Step 4 :Configure Jenkinsfile
 
 Inside the jenkins/ folder:

@@ -8,6 +8,9 @@ An end-to-end CI/CD pipeline using:
 - **Docker + ECR** for containerization
 - **ECS Fargate** for container orchestration
 - **CloudWatch** for monitoring and logs
+- ## Importance of the project and Real Use cases:
+- It is ideal for deploying microservices and web applications using cloud infrastructure.
+- It is idea dor learning Infrastructure as code and cloud provisioning.
 
 ## 🔧 Project Structure
 - `terraform/` – Infrastructure as Code
@@ -105,20 +108,6 @@ This step refreshes the running service to ensure it uses your latest build.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-## 📸 Architecture
-
-![Architecture](architecture.png)
 
 ## 🛠️ How to Run
 

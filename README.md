@@ -36,7 +36,7 @@ cd devops-portfolio
 
 mkdir terraform app jenkins
 
-Step 2: Write Terraform Code to Provision AWS Resources
+Step 2: Write Terraform Code to use AWS Resources
 
 Create various files inside the terraform using "touch" command to write necessory code in them.
 

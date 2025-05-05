@@ -13,7 +13,34 @@ An end-to-end CI/CD pipeline using:
 - `terraform/` – Infrastructure as Code
 - `app/` – Simple Flask app
 - `jenkins/` – CI/CD pipeline with Jenkinsfile
-  ## Step by Step Guide :
+
+## Prerequisites:
+
+AWS account
+
+GitHub
+
+Jenkins installed (locally or on an EC2 instance)
+
+Terraform CLI installed
+
+Docker installed
+
+## Step by Step guide :
+
+Step 1: Set Up Your Project Structure
+
+mkdir devops-portfolio
+
+cd devops-portfolio
+
+mkdir terraform app jenkins
+
+Step 2: Write Terraform Code to Provision AWS Resources
+Create various files inside the terraform using "touch" command to write necessory code in them.
+
+
+
 
 ## 📸 Architecture
 
@@ -22,7 +49,7 @@ An end-to-end CI/CD pipeline using:
 ## 🛠️ How to Run
 
 1. Deploy infrastructure:
-```bash
+
 cd terraform
 terraform init
 terraform apply
